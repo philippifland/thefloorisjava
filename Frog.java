@@ -15,7 +15,7 @@ public class Frog {
         StdDraw.filledCircle(x, y, size);
     }
 
-    void jump(double targetX, double targetY) {
+    void mouseJump(double targetX, double targetY) {
         double offsetX = Math.abs(targetX - this.x);
         double offsetY = Math.abs(targetY - this.y);
 
@@ -31,6 +31,18 @@ public class Frog {
             } else {
                 this.y += 0.1;
             }
+        }
+    }
+
+    void keyboardJump(char key) {
+        if (key == 'w') {
+            this.y += 0.1;
+        } else if (key == 'a') {
+            this.x -= 0.1;
+        } else if (key == 's') {
+            this.y -= 0.1;
+        } else if (key == 'd') {
+            this.x += 0.1;
         }
     }
 

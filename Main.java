@@ -53,12 +53,17 @@ public class Main {
                 StdDraw.show();
                 return;
             }
+
             if (StdDraw.isMousePressed() && !isMouseAlreadyPressed) {
-                frog.jump(StdDraw.mouseX(), StdDraw.mouseY());
+                frog.mouseJump(StdDraw.mouseX(), StdDraw.mouseY());
                 isMouseAlreadyPressed = true;
             }
             isMouseAlreadyPressed = StdDraw.isMousePressed();
 
+            if (StdDraw.hasNextKeyTyped()) {
+                char key = StdDraw.nextKeyTyped();
+                frog.keyboardJump(key);
+            }
             StdDraw.pause(20);
         }
     }
