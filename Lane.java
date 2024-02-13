@@ -11,6 +11,7 @@ class Lane {
         this.carHeight = carHeight;
         this.carSpeed = carSpeed;
         this.carSpacing = carSpacing;
+        this.laneHeight = laneHeight;
 
         for (double x = 0; x < 1.0; x += carWidth + carSpacing) {
             cars.add(new Car(x, y, carWidth, carHeight, carSpeed));
@@ -18,9 +19,14 @@ class Lane {
     }
 
     void draw() {
-        // add backgorund color for lanes
-        StdDraw.setPenColor(StdDraw.BLUE);
+        StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.filledRectangle(0.5, this.y, 0.5, this.laneHeight / 2);
+
+        // add white stripe to the lane
+        StdDraw.setPenColor(StdDraw.WHITE);
+        for (double x = 0; x < 1.0; x += 0.1) {
+            StdDraw.filledRectangle(x, this.y, 0.05, this.laneHeight / 20);
+        }
 
         for (Car car : cars) {
             car.draw();

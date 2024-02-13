@@ -26,6 +26,7 @@ public class Main {
 
         Goal goal = new Goal(0.95);
 
+        boolean isMouseAlreadyPressed = false;
         while (true) {
             StdDraw.clear();
             for (Lane lane : lanes) {
@@ -52,10 +53,11 @@ public class Main {
                 StdDraw.show();
                 return;
             }
-
-            if (StdDraw.isMousePressed()) {
-                frog.moveTowards(StdDraw.mouseX(), StdDraw.mouseY());
+            if (StdDraw.isMousePressed() && !isMouseAlreadyPressed) {
+                frog.jump(StdDraw.mouseX(), StdDraw.mouseY());
+                isMouseAlreadyPressed = true;
             }
+            isMouseAlreadyPressed = StdDraw.isMousePressed();
 
             StdDraw.pause(20);
         }

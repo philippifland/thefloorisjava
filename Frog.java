@@ -15,24 +15,24 @@ public class Frog {
         StdDraw.filledCircle(x, y, size);
     }
 
-    void moveTowards(double targetX, double targetY) {
-        double dx = targetX - this.x;
-        double dy = targetY - this.y;
-        double distance = Math.sqrt(dx * dx + dy * dy);
-        this.x += dx / distance * 0.05;
-        this.y += dy / distance * 0.05;
+    void jump(double targetX, double targetY) {
+        double offsetX = Math.abs(targetX - this.x);
+        double offsetY = Math.abs(targetY - this.y);
+
+        if (Math.abs(offsetX) > offsetY) {
+            if (targetX < this.x) {
+                this.x -= 0.1;
+            } else {
+                this.x += 0.1;
+            }
+        } else {
+            if (targetY < this.y) {
+                this.y -= 0.1;
+            } else {
+                this.y += 0.1;
+            }
+        }
     }
-
-    // void jump(double targetX, double targetY) {
-    // double offsetX = Math.abs(targetX - this.x);
-    // double offsetY = Math.abs(targetY - this.y);
-
-    // if (Math.abs(offsetX) > offsetY) {
-    // this.x +=
-    // } else {
-    // this.y = targetY;
-    // }
-    // }
 
     boolean collidesWith(Car car) {
         double dx = this.x - car.x;
