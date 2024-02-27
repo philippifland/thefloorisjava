@@ -1,7 +1,8 @@
-import java.awt.Color;
+import java.util.Random;
 
 class Car {
     double x, y, width, height, speed;
+    String image;
 
     Car(double x, double y, double width, double height, double speed) {
         this.x = x;
@@ -9,11 +10,14 @@ class Car {
         this.width = width;
         this.height = height;
         this.speed = speed;
+
+        // Select a random image
+        String[] images = { "images/bluecar.png", "images/redcar.png", "images/greencar.png" };
+        this.image = images[new Random().nextInt(images.length)];
     }
 
     void draw() {
-        StdDraw.setPenColor(Color.BLUE);
-        StdDraw.filledRectangle(x, y, width / 2, height / 2);
+        StdDraw.picture(x, y, image, width, height);
     }
 
     void move() {
