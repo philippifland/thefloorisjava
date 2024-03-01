@@ -23,15 +23,13 @@ public class Main {
             lanes.add(new Lane(y, carWidth, carHeight, carSpeed, carSpacing, laneHeight));
         }
 
-        Frog frog = new Frog(0.5, 0.1, 0.07);
         int lives = 3;
-
-        Goal goal = new Goal(0.95);
+        Frog frog = new Frog(0.5, 0.1, 0.07);
+        Goal goal = new Goal(0.9);
 
         boolean isMouseAlreadyPressed = false;
         while (true) {
             StdDraw.clear();
-            StdDraw.picture(0.5, 0.5, "images/background.png", 1.0, 1.0);
             for (Lane lane : lanes) {
                 lane.draw();
                 lane.moveCars();
@@ -39,15 +37,13 @@ public class Main {
                     if (frog.collidesWith(car)) {
                         frog = new Frog(0.5, 0.1, 0.07);
                         lives--;
-                        if (lives == 0) {
-                            return;
-                        }
                     }
                 }
             }
             goal.draw();
+            StdDraw.picture(0.5, 0.5, "images/start.png", 1.0, 1.0);
             frog.draw();
-            StdDraw.setPenColor(Color.BLACK);
+            StdDraw.setPenColor(Color.WHITE);
             StdDraw.text(0.1, 0.05, "Lives: " + lives);
             StdDraw.show();
 
@@ -68,8 +64,11 @@ public class Main {
                 char key = StdDraw.nextKeyTyped();
                 frog.keyboardJump(key);
             }
-
             StdDraw.pause(20);
+
+            if (lives == 0) {
+                return;
+            }
         }
     }
 }

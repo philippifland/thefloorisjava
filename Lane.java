@@ -19,14 +19,7 @@ class Lane {
     }
 
     void draw() {
-        StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.filledRectangle(0.5, this.y, 0.5, this.laneHeight / 2);
-
-        // add white stripe to the lane
-        StdDraw.setPenColor(StdDraw.WHITE);
-        for (double x = 0; x < 1.0; x += 0.1) {
-            StdDraw.filledRectangle(x, this.y, 0.05, this.laneHeight / 20);
-        }
+        StdDraw.picture(0.5, y, "images/Road.png", 1.0, laneHeight);
 
         for (Car car : cars) {
             car.draw();

@@ -12,12 +12,13 @@ class Car {
         this.speed = speed;
 
         // Select a random image
-        String[] images = { "images/bluecar.png", "images/redcar.png", "images/greencar.png" };
+        String[] images = { "images/0.png", "images/1.png", "images/2.png", "images/3.png", "images/4.png",
+                "images/5.png", "images/6.png", "images/7.png", "images/8.png", "images/9.png", "images/10.png" };
         this.image = images[new Random().nextInt(images.length)];
     }
 
     void draw() {
-        StdDraw.picture(x, y, image, width, height);
+        StdDraw.picture(x, y, image, width, height * 1.5);
     }
 
     void move() {

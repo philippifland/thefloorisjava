@@ -6,7 +6,7 @@ class Goal {
     }
 
     public void draw() {
-        StdDraw.picture(0, this.y, "images/goalarea.png", 2, 0.05);
+        StdDraw.picture(0.5, 1, "images/goal.png", 1, 1);
     }
 
     public boolean isReachedBy(Frog frog) {

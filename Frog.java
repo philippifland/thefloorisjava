@@ -8,7 +8,7 @@ public class Frog {
     }
 
     void draw() {
-        StdDraw.picture(x, y, "images/frog.png", size, size);
+        StdDraw.picture(x, y, "images/Sapo.png", size, size);
     }
 
     void mouseJump(double targetX, double targetY) {
