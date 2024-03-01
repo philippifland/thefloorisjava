@@ -25,7 +25,7 @@ public class Main {
 
         int lives = 3;
         Frog frog = new Frog(0.5, 0.1, 0.07);
-        Goal goal = new Goal(0.9);
+        Goal goal = new Goal(0.8);
 
         boolean isMouseAlreadyPressed = false;
         while (true) {
@@ -40,16 +40,16 @@ public class Main {
                     }
                 }
             }
+            StdDraw.picture(0.5, 0.4, "images/start.png", 1.0, 1.2);
             goal.draw();
-            StdDraw.picture(0.5, 0.5, "images/start.png", 1.0, 1.0);
             frog.draw();
             StdDraw.setPenColor(Color.WHITE);
-            StdDraw.text(0.1, 0.05, "Lives: " + lives);
+            StdDraw.text(0.5, 0.05, "Lives: " + lives);
             StdDraw.show();
 
             // Check if the frog has reached the goal
             if (goal.isReachedBy(frog)) {
-                StdDraw.text(0.5, 0.05, "You won!");
+                StdDraw.text(0.5, 0.95, "You won!");
                 StdDraw.show();
                 return;
             }
